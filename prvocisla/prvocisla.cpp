@@ -1,11 +1,58 @@
 // prvocisla.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include <iostream>
+//#include <iostream>
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    int i = 2; //toto bude jmenovatel pro testovani, timto zacnu delit a pak zvysuju
+    int cislo = 0;  //toto cislo testuji
+    int prvocislo = 1; //predpokladam, ze cislo je prvocislo, dokud nenajdu delitele
+    char je_delitelne[100] = "";
+    char pridej[10] = "";
+
+    while (1) {
+
+        printf("Zadejte cislo: ");
+        scanf("%d", &cislo);
+
+        i = 2;
+        prvocislo = 1;
+        char je_delitelne[100] = "";
+
+        if (cislo > 1) {
+            //prvocisla jsou jen prirozena cisla vetsi nez 1
+            while (i < cislo) {
+                if (cislo % i == 0) {
+                    //neni prvocislo
+                    //printf("%d\n", i);
+                    prvocislo = 0;
+                    sprintf(pridej, "%d", i);
+                    if (strlen(je_delitelne) > 0) {
+                        strcat(je_delitelne, ", ");
+                    }
+                    strcat(je_delitelne, pridej);
+                }
+                i++;
+            }
+        }
+        else {
+            prvocislo = 0;
+        }
+
+        if (prvocislo == 0) {
+            printf("%s %d %s\n", "Cislo", cislo, "neni prvocislo!");
+            if (strlen(je_delitelne) > 0) {
+                printf("%s %s\n", "Je delitelne cisly: ", je_delitelne);
+            }
+        }
+        else {
+            printf("%s %d %s\n", "Cislo", cislo, "je prvocislo!");
+        }
+    }
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
