@@ -32,7 +32,7 @@ int main()
                     //neni prvocislo
                     //printf("%d\n", i);
                     prvocislo = 0;
-                    printf(pridej, "%d", i);
+                    sprintf(pridej, "%d", i);
                     if (strlen(je_delitelne) > 0) {
                         strcat(je_delitelne, ", ");
                     }
