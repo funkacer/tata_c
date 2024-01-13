@@ -21,7 +21,9 @@ int main()
 
         i = 2;
         prvocislo = 1;
-        char je_delitelne[100] = "";
+        strcpy(je_delitelne, "");
+
+        //char je_delitelne[100] = "";
 
         if (cislo > 1) {
             //prvocisla jsou jen prirozena cisla vetsi nez 1
@@ -30,7 +32,7 @@ int main()
                     //neni prvocislo
                     //printf("%d\n", i);
                     prvocislo = 0;
-                    sprintf(pridej, "%d", i);
+                    printf(pridej, "%d", i);
                     if (strlen(je_delitelne) > 0) {
                         strcat(je_delitelne, ", ");
                     }
